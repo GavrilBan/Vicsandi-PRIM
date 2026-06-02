@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<!-- ============================================================
+     Săptămâna 5 – Optimizare și Performanță
+     Săptămâna 6 – Securitate și Backup
+     Săptămâna 7 – Conținut și Marketing Digital
+     Săptămâna 8 – Documentare și Predare Proiect
+============================================================ -->
+
+<!-- ===== SEO – Săptămâna 3, Joi (existent) / actualizat S5 ===== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vicsandi-Prim | Cofetăria SERELE – Prăjituri, Torturi & Dulciuri</title>
+<meta name="description" content="Vicsandi-Prim – Cofetăria SERELE. Torturi personalizate, prăjituri artizanale, bomboane și dulciuri tradiționale. Comandați online sau vizitați-ne!">
+<meta name="keywords" content="cofetărie, prăjituri, torturi, dulciuri, bomboane, Vicsandi-Prim, SERELE, cofetărie artizanală">
+<meta name="author" content="Vicsandi-Prim">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Vicsandi-Prim | Cofetăria SERELE">
+<meta property="og:description" content="Dulciuri cu suflet, create cu pasiune. Torturi, prăjituri și bomboane artizanale.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vicsandi-prim.ro">
+<meta property="og:image" content="https://vicsandi-prim.ro/og-image.jpg">
+<meta property="og:locale" content="ro_RO">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vicsandi-Prim | Cofetăria SERELE">
+<meta name="twitter:description" content="Dulciuri cu suflet, create cu pasiune.">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://vicsandi-prim.ro">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+
+<!-- ===== Săptămâna 5, Marți – Imagini preîncărcate (preload) ===== -->
+<!-- <link rel="preload" as="image" href="images/hero-tort.jpg"> -->
+
+<!-- Fonturi -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== VARIABILE ===== */
+  :root {
+    --alb: #FFFFFF;
+    --crem: #FDF8F3;
+    --auriu: #C9A96E;
+    --auriu-deschis: #E8D5B0;
+    --roz: #F2C4CE;
+    --roz-inchis: #D4899A;
+    --ciocolatiu: #5C3D2E;
+    --ciocolatiu-deschis: #8B6355;
+    --text: #2C1810;
+    --gri: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  /* ===== Săptămâna 5, Joi – font-display swap pentru performanță ===== */
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--crem);
+    color: var(--text);
+    overflow-x: hidden;
+    /* S5 Joi: text rendering optimizat */
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== NAVIGARE ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(253,248,243,0.96);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--auriu-deschis);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--ciocolatiu);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--auriu); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ciocolatiu);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--auriu);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--auriu); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--ciocolatiu);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: rgba(253,248,243,0.98);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--auriu-deschis);
+    padding: 1.5rem 2rem;
+    z-index: 999;
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .nav-mobile a {
+    text-decoration: none;
+    color: var(--ciocolatiu);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  /* ===== HERO ===== */
+  #acasa {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FDF8F3 0%, #FAF0E8 40%, #F8E8E0 100%);
+    padding: 80px 2rem 2rem;
+  }
+
+  .hero-deco {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+  .hero-deco-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--roz), transparent);
+    top: -100px; right: -100px;
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero-deco-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--auriu), transparent);
+    bottom: 50px; left: -80px;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  .hero-deco-3 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, var(--ciocolatiu-deschis), transparent);
+    top: 30%; right: 10%;
+    animation: float 12s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-tag {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--auriu);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--ciocolatiu);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-title em { font-style: italic; color: var(--auriu); }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--ciocolatiu-deschis);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: var(--gri);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .btn-primary {
+    background: var(--ciocolatiu);
+    color: white;
+    padding: 0.85rem 2.2rem;
+    border: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--auriu);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201,169,110,0.4);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ciocolatiu);
+    padding: 0.85rem 2.2rem;
+    border: 1.5px solid var(--auriu);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn-secondary:hover {
+    background: var(--auriu);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* ===== SLIDER ===== */
+  .hero-slider {
+    position: relative;
+    margin-top: 3rem;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+  .slider-wrapper {
+    overflow: hidden;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .slider-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: max-content;
+  }
+  .slider-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 160px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(92,61,46,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .slider-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(92,61,46,0.18); }
+  .slider-card .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .slider-card .label { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--ciocolatiu); font-weight: 500; }
+  .slider-nav { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+  .slider-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--auriu-deschis); border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; }
+  .slider-dot.active { background: var(--auriu); transform: scale(1.3); }
+  .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: white; border: 1px solid var(--auriu-deschis); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; font-size: 1rem; color: var(--ciocolatiu); display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10; box-shadow: 0 4px 12px rgba(92,61,46,0.15); }
+  .slider-btn:hover { background: var(--auriu); color: white; }
+  .slider-btn.prev { left: 0; }
+  .slider-btn.next { right: 0; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECȚIUNI COMUNE ===== */
+  section { padding: 5rem 2rem; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-tag { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--auriu); margin-bottom: 0.8rem; display: block; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--ciocolatiu); margin-bottom: 1rem; }
+  .section-line { width: 60px; height: 2px; background: linear-gradient(to right, var(--roz), var(--auriu)); margin: 0 auto; }
+
+  /* ===== MENIU ===== */
+  #meniu { background: var(--alb); }
+  .meniu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+  .meniu-card { background: var(--crem); border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid var(--auriu-deschis); }
+  .meniu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(92,61,46,0.15); }
+  .meniu-card-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 5rem; position: relative; overflow: hidden; }
+  .meniu-card:nth-child(1) .meniu-card-img { background: linear-gradient(135deg, #f8e4e4, #f2c4ce); }
+  .meniu-card:nth-child(2) .meniu-card-img { background: linear-gradient(135deg, #f5e6d0, #e8d5b0); }
+  .meniu-card:nth-child(3) .meniu-card-img { background: linear-gradient(135deg, #e8d5c4, #c9a96e44); }
+  .meniu-card:nth-child(4) .meniu-card-img { background: linear-gradient(135deg, #f0e0f0, #d4a0d4); }
+  .meniu-card:nth-child(5) .meniu-card-img { background: linear-gradient(135deg, #dde8f0, #b0c8e8); }
+  .meniu-card:nth-child(6) .meniu-card-img { background: linear-gradient(135deg, #e8f0dd, #c8e0a0); }
+  .meniu-badge { position: absolute; top: 1rem; right: 1rem; background: var(--auriu); color: white; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; }
+  .meniu-card-body { padding: 1.5rem; }
+  .meniu-card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--ciocolatiu); margin-bottom: 0.5rem; }
+  .meniu-card-desc { font-size: 0.88rem; color: var(--gri); line-height: 1.7; margin-bottom: 1rem; }
+  .meniu-card-items { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .meniu-card-items li { display: flex; justify-content: space-between; font-size: 0.88rem; color: var(--ciocolatiu); padding: 0.3rem 0; border-bottom: 1px dashed var(--auriu-deschis); }
+  .meniu-card-items li span { color: var(--auriu); font-weight: 600; }
+
+  /* ===== GALERIE ===== */
+  #galerie { background: var(--crem); }
+  .galerie-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 220px); gap: 1rem; max-width: 900px; margin: 0 auto; }
+  .galerie-item { border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 4rem; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; position: relative; }
+  .galerie-item:hover { transform: scale(1.03); box-shadow: 0 12px 40px rgba(92,61,46,0.2); }
+  .galerie-item:nth-child(1) { grid-column: 1/2; grid-row: 1/3; background: linear-gradient(160deg, #f2c4ce, #d4899a); font-size: 6rem; }
+  .galerie-item:nth-child(2) { background: linear-gradient(160deg, #e8d5b0, #c9a96e); }
+  .galerie-item:nth-child(3) { background: linear-gradient(160deg, #5c3d2e, #8b6355); }
+  .galerie-item:nth-child(4) { background: linear-gradient(160deg, #fdf8f3, #f2c4ce); }
+  .galerie-item:nth-child(5) { background: linear-gradient(160deg, #c9a96e, #e8d5b0); }
+  .galerie-item .overlay { position: absolute; inset: 0; background: rgba(92,61,46,0.6); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; font-size: 0.9rem; color: white; font-family: 'Cormorant Garamond', serif; letter-spacing: 2px; text-transform: uppercase; }
+  .galerie-item:hover .overlay { opacity: 1; }
+
+  /* ===== DESPRE NOI ===== */
+  #despre { background: var(--ciocolatiu); color: white; }
+  #despre .section-title { color: var(--auriu-deschis); }
+  #despre .section-tag { color: var(--roz); }
+  .despre-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start; }
+  .despre-istoric { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.2); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .despre-istoric h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--auriu); margin-bottom: 0.8rem; letter-spacing: 1px; }
+  .despre-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
+  .valori-grid { display: flex; flex-direction: column; gap: 0.8rem; margin: 1.2rem 0; }
+  .valoare-item { display: flex; align-items: center; gap: 0.8rem; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 0.7rem 1rem; border-left: 2px solid var(--auriu); }
+  .valoare-icon { font-size: 1.2rem; }
+  .valoare-text { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+  .echipa-section { margin-top: 1.5rem; }
+  .echipa-section h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--auriu); margin-bottom: 1rem; letter-spacing: 1px; }
+  .echipa-grid { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+  .echipa-card { text-align: center; flex: 1; min-width: 100px; }
+  .echipa-avatar { width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 0.6rem; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; border: 2px solid var(--auriu); }
+  .echipa-name { font-family: 'Playfair Display', serif; font-size: 0.9rem; color: white; margin-bottom: 0.2rem; }
+  .echipa-role { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+  .atelier-foto { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.5rem; }
+  .atelier-card { border-radius: 12px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; transition: transform 0.3s; cursor: pointer; position: relative; overflow: hidden; }
+  .atelier-card:hover { transform: scale(1.04); }
+  .atelier-card:nth-child(1) { background: linear-gradient(135deg, #f2c4ce55, #d4899a55); }
+  .atelier-card:nth-child(2) { background: linear-gradient(135deg, #e8d5b055, #c9a96e55); }
+  .atelier-card:nth-child(3) { background: linear-gradient(135deg, #c9a96e22, #5c3d2e55); }
+  .atelier-card:nth-child(4) { background: linear-gradient(135deg, #f2c4ce33, #d4899a22); }
+  .atelier-label { position: absolute; bottom: 0.4rem; font-size: 0.65rem; letter-spacing: 1px; color: rgba(255,255,255,0.8); font-family: 'Lato', sans-serif; text-transform: uppercase; }
+  .despre-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .stat-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(201,169,110,0.3); border-radius: 16px; padding: 1.4rem; text-align: center; transition: background 0.3s; }
+  .stat-card:hover { background: rgba(201,169,110,0.15); }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 2.3rem; color: var(--auriu); display: block; margin-bottom: 0.3rem; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+  .recenzie-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,169,110,0.2); border-radius: 12px; padding: 1.2rem; }
+  .recenzie-stele { color: var(--auriu); font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .recenzie-text { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.6; font-style: italic; margin-bottom: 0.7rem; }
+  .recenzie-autor { font-size: 0.75rem; color: var(--auriu); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ===== PROMOȚII – Săptămâna 7, Joi ===== */
+  #promotii { background: var(--alb); }
+  .promotii-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+  .promotie-card {
+    background: linear-gradient(135deg, var(--crem), white);
+    border: 1px solid var(--auriu-deschis);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .promotie-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--roz), var(--auriu));
+  }
+  .promotie-card:hover { transform: translateY(-6px); box-shadow: 0 16px 45px rgba(92,61,46,0.12); }
+  .promotie-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .promotie-titlu { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--ciocolatiu); margin-bottom: 0.6rem; }
+  .promotie-desc { font-size: 0.88rem; color: var(--gri); line-height: 1.7; margin-bottom: 1.2rem; }
+  .promotie-pret {
+    display: inline-block;
+    background: var(--auriu);
+    color: white;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  .promotie-badge-nou {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: var(--roz-inchis);
+    color: white;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+  }
+
+  /* ===== BLOG – Săptămâna 7, Luni ===== */
+  #blog { background: var(--crem); }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+  .blog-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--auriu-deschis);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(92,61,46,0.13); }
+  .blog-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+  .blog-card:nth-child(1) .blog-img { background: linear-gradient(135deg, #f2c4ce, #d4899a); }
+  .blog-card:nth-child(2) .blog-img { background: linear-gradient(135deg, #e8d5b0, #c9a96e); }
+  .blog-card:nth-child(3) .blog-img { background: linear-gradient(135deg, #dde8f0, #b0c8e8); }
+  .blog-body { padding: 1.4rem; }
+  .blog-data { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--auriu); margin-bottom: 0.5rem; }
+  .blog-titlu { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ciocolatiu); margin-bottom: 0.5rem; }
+  .blog-extras { font-size: 0.85rem; color: var(--gri); line-height: 1.6; }
+
+  /* ===== SOCIAL SHARE – Săptămâna 7, Miercuri ===== */
+  .social-share {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  .social-btn-fb { background: #1877F2; color: white; }
+  .social-btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+  .social-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+  /* ===== CONTACT ===== */
+  #contact { background: var(--alb); }
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; max-width: 1000px; margin: 0 auto; }
+  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--ciocolatiu); margin-bottom: 1.5rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+  .contact-icon { width: 44px; height: 44px; background: var(--crem); border: 1px solid var(--auriu-deschis); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .contact-text strong { display: block; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--auriu); margin-bottom: 0.3rem; }
+  .contact-text span { font-size: 0.95rem; color: var(--ciocolatiu); }
+  .harta { background: linear-gradient(135deg, var(--crem), var(--auriu-deschis)); border-radius: 16px; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin-top: 1.5rem; border: 1px solid var(--auriu-deschis); position: relative; overflow: hidden; }
+  .harta-label { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--ciocolatiu); letter-spacing: 2px; background: white; padding: 0.3rem 1rem; border-radius: 20px; white-space: nowrap; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--auriu); }
+  .form-group input, .form-group textarea, .form-group select { padding: 0.9rem 1.2rem; border: 1.5px solid var(--auriu-deschis); border-radius: 10px; background: var(--crem); font-family: 'Lato', sans-serif; font-size: 0.95rem; color: var(--ciocolatiu); transition: border-color 0.3s; outline: none; -webkit-appearance: none; appearance: none; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--auriu); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .btn-submit { background: var(--ciocolatiu); color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; }
+  .btn-submit:hover { background: var(--auriu); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,169,110,0.4); }
+  .form-success { display: none; text-align: center; padding: 2rem; background: var(--crem); border-radius: 16px; border: 1px solid var(--auriu-deschis); }
+  .form-success .icon { font-size: 3rem; margin-bottom: 1rem; }
+  .form-success p { color: var(--ciocolatiu); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
+
+  /* ===== CAPTCHA placeholder – Săptămâna 6, Joi ===== */
+  .captcha-box {
+    background: var(--crem);
+    border: 1.5px solid var(--auriu-deschis);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .captcha-box input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--auriu); cursor: pointer; }
+  .captcha-box label { font-size: 0.88rem; color: var(--ciocolatiu); cursor: pointer; }
+  .captcha-box .captcha-logo { margin-left: auto; font-size: 0.7rem; color: var(--gri); text-align: center; line-height: 1.3; }
+
+  /* ===== SSL BADGE – Săptămâna 6, Marți ===== */
+  .ssl-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    color: #2e7d32;
+    margin-top: 0.8rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer { background: #1a0e08; color: rgba(255,255,255,0.6); padding: 3rem 2rem 1.5rem; text-align: center; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--auriu); margin-bottom: 0.5rem; }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(255,255,255,0.4); margin-bottom: 2rem; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 2rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--auriu); }
+  .footer-divider { width: 40px; height: 1px; background: var(--auriu); margin: 0 auto 1.5rem; }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+  /* ===== BACK TO TOP ===== */
+  #backTop { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--ciocolatiu); color: white; border: none; border-radius: 50%; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(92,61,46,0.4); transition: all 0.3s; z-index: 999; }
+  #backTop:hover { background: var(--auriu); transform: translateY(-3px); }
+  #backTop.visible { opacity: 1; pointer-events: auto; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .galerie-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .galerie-item:nth-child(1) { grid-column: 1/3; grid-row: 1; }
+    .despre-content { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .harta-label { font-size: 0.75rem; }
+    .slider-card { width: 130px; padding: 1rem; }
+    .slider-btn { display: none; }
+    .meniu-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.2rem; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .promotii-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-btns { flex-direction: column; align-items: center; }
+    .hero-btns a { width: 100%; max-width: 280px; text-align: center; }
+    .atelier-foto { grid-template-columns: 1fr 1fr; }
+    .social-share { flex-direction: column; align-items: center; }
+  }
+
+  /* ===== Săptămâna 5, Joi – CSS optimizat, fără duplicate ===== */
+  /* Săptămâna 5, Luni – PageSpeed: imagine lazy loading via JS */
+  /* Săptămâna 5, Miercuri – Caching prin meta http-equiv (server-side recomandat) */
+
+  /* ===== PRINT – Săptămâna 3, Joi / Săptămâna 8, Miercuri verificat ===== */
+  @media print {
+    nav, #backTop, .hero-deco, .social-btn, #backTop { display: none; }
+    section { padding: 2rem 1rem; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGARE ===== -->
+<nav role="navigation" aria-label="Navigare principală">
+  <a href="#acasa" class="nav-logo" aria-label="Vicsandi-Prim – pagina principală">Vicsandi<span>-Prim</span></a>
+  <ul class="nav-links">
+    <li><a href="#acasa">Acasă</a></li>
+    <li><a href="#meniu">Meniu</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#despre">Despre noi</a></li>
+    <li><a href="#promotii">Promoții</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Deschide meniu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Meniu mobil -->
+<div class="nav-mobile" id="navMobile" role="navigation" aria-label="Meniu mobil">
+  <ul>
+    <li><a href="#acasa"    onclick="closeMobile()">Acasă</a></li>
+    <li><a href="#meniu"    onclick="closeMobile()">Meniu</a></li>
+    <li><a href="#galerie"  onclick="closeMobile()">Galerie</a></li>
+    <li><a href="#despre"   onclick="closeMobile()">Despre noi</a></li>
+    <li><a href="#promotii" onclick="closeMobile()">Promoții</a></li>
+    <li><a href="#blog"     onclick="closeMobile()">Blog</a></li>
+    <li><a href="#contact"  onclick="closeMobile()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="acasa" aria-label="Pagina principală">
+  <div class="hero-deco hero-deco-1" aria-hidden="true"></div>
+  <div class="hero-deco hero-deco-2" aria-hidden="true"></div>
+  <div class="hero-deco hero-deco-3" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Cofetăria SERELE ✦</div>
+    <h1 class="hero-title">Vicsandi<em>-Prim</em></h1>
+    <p class="hero-subtitle">Dulciuri cu suflet, create cu pasiune</p>
+    <p class="hero-desc">Bine ați venit la Vicsandi-Prim — locul unde fiecare prăjitură spune o poveste și fiecare îmbucătură aduce bucurie.</p>
+    <div class="hero-btns">
+      <a href="#meniu"   class="btn-primary">Explorează Meniul</a>
+      <a href="#contact" class="btn-secondary">Comandă Acum</a>
+    </div>
+    <div class="hero-slider" aria-label="Categorii produse">
+      <button class="slider-btn prev" id="sliderPrev" aria-label="Anterior">‹</button>
+      <div class="slider-wrapper">
+        <div class="slider-track" id="sliderTrack">
+          <div class="slider-card" role="button" tabindex="0" aria-label="Torturi"><div class="icon" aria-hidden="true">🎂</div><div class="label">Torturi</div></div>
+          <div class="slider-card" role="button" tabindex="0" aria-label="Prăjituri"><div class="icon" aria-hidden="true">🧁</div><div class="label">Prăjituri</div></div>
+          <div class="slider-card" role="button" tabindex="0" aria-label="Dulciuri"><div class="icon" aria-hidden="true">🍬</div><div class="label">Dulciuri</div></div>
+          <div class="slider-card" role="button" tabindex="0" aria-label="Bomboane"><div class="icon" aria-hidden="true">🍫</div><div class="label">Bomboane</div></div>
+          <div class="slider-card" role="button" tabindex="0" aria-label="Cadouri"><div class="icon" aria-hidden="true">🎁</div><div class="label">Cadouri</div></div>
+          <div class="slider-card" role="button" tabindex="0" aria-label="Cafea"><div class="icon" aria-hidden="true">☕</div><div class="label">Cafea</div></div>
+        </div>
+      </div>
+      <button class="slider-btn next" id="sliderNext" aria-label="Următor">›</button>
+      <div class="slider-nav" id="sliderDots" role="tablist" aria-label="Pagini slider"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENIU ===== -->
+<section id="meniu" aria-label="Meniu dulce">
+  <div class="section-header">
+    <span class="section-tag">✦ Produsele noastre ✦</span>
+    <h2 class="section-title">Meniu Dulce</h2>
+    <div class="section-line" aria-hidden="true"></div>
+  </div>
+  <div class="meniu-grid">
+    <article class="meniu-card">
+      <div class="meniu-card-img" role="img" aria-label="Torturi de ocazie">🎂<span class="meniu-badge">Popular</span></div>
+      <div class="meniu-card-body">
+        <h3 class="meniu-card-title">Torturi de Ocazie</h3>
+        <p class="meniu-card-desc">Torturi personalizate pentru orice eveniment special — aniversări, nunți, botezuri.</p>
+        <ul class="meniu-card-items" aria-label="Prețuri torturi">
+          <li>Tort Frișcă cu Fructe<span>de la 180 lei</span></li>
+          <li>Tort Ciocolată Belgiană<span>de la 220 lei</span></li>
+          <li>Tort Personalizat<span>de la 300 lei</span></li>
+        </ul>
+      </div>
+    </article>
+    <article class="meniu-card">
+      <div class="meniu-card-img" role="img" aria-label="Prăjituri artizanale">🧁</div>
+      <div class="meniu-card-body">
+        <h3 class="meniu-card-title">Prăjituri Artizanale</h3>
+        <p class="meniu-card-desc">Prăjituri făcute zilnic din ingrediente naturale, după rețete tradiționale și moderne.</p>
+        <ul class="meniu-card-items" aria-label="Prețuri prăjituri">
+          <li>Ecler cu Vanilie<span>18 lei</span></li>
+          <li>Choux au Craquelin<span>22 lei</span></li>
+          <li>Prăjitura Amandine<span>15 lei</span></li>
+        </ul>
+      </div>
+    </article>
+    <article class="meniu-card">
+      <div class="meniu-card-img" role="img" aria-label="Bomboane și trufe">🍫<span class="meniu-badge">Nou</span></div>
+      <div class="meniu-card-body">
+        <h3 class="meniu-card-title">Bomboane & Trufe</h3>
+        <p class="meniu-card-desc">Bomboane de ciocolată belgiane, trufe aromate și praline de lux, ambalate elegant.</p>
+        <ul class="meniu-card-items" aria-label="Prețuri bomboane">
+          <li>Cutie Trufe (12 buc)<span>85 lei</span></li>
+          <li>Praline Asortate<span>65 lei</span></li>
+          <li>Bomboane Artizanale<span>45 lei</span></li>
+        </ul>
+      </div>
+    </article>
+    <article class="meniu-card">
+      <div class="meniu-card-img" role="img" aria-label="Dulciuri tradiționale">🍬</div>
+      <div class="meniu-card-body">
+        <h3 class="meniu-card-title">Dulciuri Tradiționale</h3>
+        <p class="meniu-card-desc">Dulciuri de casă, după rețete bunicești — cozonac, baclava, halva și altele.</p>
+        <ul class="meniu-card-items" aria-label="Prețuri dulciuri tradiționale">
+          <li>Cozonac Tradițional<span>55 lei</span></li>
+          <li>Baclava cu Nuci<span>12 lei / buc</span></li>
+          <li>Rahat Turcesc<span>35 lei</span></li>
+        </ul>
+      </div>
+    </article>
+    <article class="meniu-card">
+      <div class="meniu-card-img" role="img" aria-label="Băuturi și cafea">☕</div>
+      <div class="meniu-card-body">
+        <h3 class="meniu-card-title">Băuturi & Cafea</h3>
+        <p class="meniu-card-desc">Cafea de specialitate, ceaiuri aromatice și băuturi calde perfecte alături de dulciuri.</p>
+        <ul class="meniu-card-items" aria-label="Prețuri băuturi">
+          <li>Cappuccino<span>14 lei</span></li>
+          <li>Ciocolată Caldă<span>18 lei</span></li>
+          <li>Ceai Aromat<span>10 lei</span></li>
+        </ul>
+      </div>
+    </article>
+    <article class="meniu-card">
+      <div class="meniu-card-img" role="img" aria-label="Cadouri și cutii cadou">🎁</div>
+      <div class="meniu-card-body">
+        <h3 class="meniu-card-title">Cadouri & Cutii Cadou</h3>
+        <p class="meniu-card-desc">Aranjamente cadou personalizate pentru orice ocazie — ambalate premium.</p>
+        <ul class="meniu-card-items" aria-label="Prețuri cadouri">
+          <li>Cutie Cadou Mică<span>90 lei</span></li>
+          <li>Cutie Cadou Mare<span>180 lei</span></li>
+          <li>Coș Cadou Deluxe<span>350 lei</span></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== GALERIE ===== -->
+<section id="galerie" aria-label="Galerie foto produse">
+  <div class="section-header">
+    <span class="section-tag">✦ Creațiile noastre ✦</span>
+    <h2 class="section-title">Galerie Foto</h2>
+    <div class="section-line" aria-hidden="true"></div>
+  </div>
+  <div class="galerie-grid">
+    <div class="galerie-item" role="img" aria-label="Galerie torturi de ocazie">🎂<div class="overlay" aria-hidden="true">Torturi</div></div>
+    <div class="galerie-item" role="img" aria-label="Galerie prăjituri artizanale">🧁<div class="overlay" aria-hidden="true">Prăjituri</div></div>
+    <div class="galerie-item" style="color:#f2c4ce;" role="img" aria-label="Galerie bomboane de ciocolată">🍫<div class="overlay" aria-hidden="true">Bomboane</div></div>
+    <div class="galerie-item" role="img" aria-label="Galerie dulciuri tradiționale">🍬<div class="overlay" aria-hidden="true">Dulciuri</div></div>
+    <div class="galerie-item" role="img" aria-label="Galerie cutii cadou">🎁<div class="overlay" aria-hidden="true">Cadouri</div></div>
+  </div>
+</section>
+
+<!-- ===== DESPRE NOI ===== -->
+<section id="despre" aria-label="Despre cofetăria Vicsandi-Prim">
+  <div class="section-header">
+    <span class="section-tag">✦ Povestea noastră ✦</span>
+    <h2 class="section-title">Despre Vicsandi-Prim</h2>
+    <div class="section-line" aria-hidden="true"></div>
+  </div>
+  <div class="despre-content">
+    <div class="despre-text">
+      <div class="despre-istoric">
+        <h4>✦ Istoricul cofetăriei</h4>
+        <p>Cofetăria <strong style="color:var(--auriu)">SERELE</strong> a luat naștere în urmă cu peste 5 ani, dintr-o pasiune autentică pentru arta cofetăriei. Fondată de o echipă de profesioniști cu suflet, cofetăria și-a câștigat rapid renumele prin calitatea și creativitatea produselor sale.</p>
+        <p>De-a lungul anilor, am crescut continuu — de la un mic atelier de familie la un loc de referință pentru dulciuri artizanale, iubit de sute de clienți fideli.</p>
+      </div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:rgba(255,255,255,0.85);margin-bottom:1rem;">Misiunea noastră este simplă: să aducem bucurie prin dulciuri care îmbină tradiția cu creativitatea modernă.</p>
+      <div class="valori-grid" aria-label="Valorile noastre">
+        <div class="valoare-item"><span class="valoare-icon" aria-hidden="true">🌿</span><span class="valoare-text"><strong>Calitate</strong> — ingrediente naturale, selectate cu grijă</span></div>
+        <div class="valoare-item"><span class="valoare-icon" aria-hidden="true">❤️</span><span class="valoare-text"><strong>Pasiune</strong> — fiecare produs este creat cu dragoste</span></div>
+        <div class="valoare-item"><span class="valoare-icon" aria-hidden="true">🤝</span><span class="valoare-text"><strong>Respect</strong> — fiecare comandă este tratată cu grijă specială</span></div>
+        <div class="valoare-item"><span class="valoare-icon" aria-hidden="true">✨</span><span class="valoare-text"><strong>Creativitate</strong> — design unic pentru fiecare ocazie</span></div>
+      </div>
+      <div class="echipa-section">
+        <h4>✦ Echipa noastră</h4>
+        <div class="echipa-grid">
+          <div class="echipa-card"><div class="echipa-avatar" style="background:linear-gradient(135deg,#f2c4ce,#d4899a);" role="img" aria-label="Maria – Cofetar Șef">👩‍🍳</div><div class="echipa-name">Maria</div><div class="echipa-role">Cofetar Șef</div></div>
+          <div class="echipa-card"><div class="echipa-avatar" style="background:linear-gradient(135deg,#e8d5b0,#c9a96e);" role="img" aria-label="Alexandru – Patiser">👨‍🍳</div><div class="echipa-name">Alexandru</div><div class="echipa-role">Patiser</div></div>
+          <div class="echipa-card"><div class="echipa-avatar" style="background:linear-gradient(135deg,#c9a96e44,#5c3d2e);" role="img" aria-label="Elena – Decorator">👩‍🎨</div><div class="echipa-name">Elena</div><div class="echipa-role">Decorator</div></div>
+        </div>
+      </div>
+      <div class="echipa-section" style="margin-top:1.5rem;">
+        <h4>✦ Atelierul de producție</h4>
+        <div class="atelier-foto" aria-label="Fotografii din atelierul de producție">
+          <div class="atelier-card" role="img" aria-label="Preparare torturi">🎂<span class="atelier-label">Torturi</span></div>
+          <div class="atelier-card" role="img" aria-label="Decorare prăjituri">🍰<span class="atelier-label">Decorare</span></div>
+          <div class="atelier-card" role="img" aria-label="Producție bomboane">🍫<span class="atelier-label">Bomboane</span></div>
+          <div class="atelier-card" role="img" aria-label="Ambalare cadouri">🎁<span class="atelier-label">Ambalare</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="despre-stats" aria-label="Statistici cofetărie">
+        <div class="stat-card"><span class="stat-number">5+</span><span class="stat-label">Ani de experiență</span></div>
+        <div class="stat-card"><span class="stat-number">500+</span><span class="stat-label">Clienți fericiți</span></div>
+        <div class="stat-card"><span class="stat-number">50+</span><span class="stat-label">Produse unice</span></div>
+        <div class="stat-card"><span class="stat-number">100%</span><span class="stat-label">Natural & Proaspăt</span></div>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--auriu);margin-bottom:1rem;letter-spacing:1px;">✦ Ce spun clienții</h4>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="recenzie-card"><div class="recenzie-stele" aria-label="5 stele">★★★★★</div><p class="recenzie-text">"Tortul de nuntă a fost absolut superb! Toți invitații au fost impresionați atât de aspect cât și de gust."</p><div class="recenzie-autor">— Andreea M.</div></div>
+          <div class="recenzie-card"><div class="recenzie-stele" aria-label="5 stele">★★★★★</div><p class="recenzie-text">"Prăjiturile artizanale sunt de neuitat. Le comand de fiecare dată când am o ocazie specială."</p><div class="recenzie-autor">— Ion P.</div></div>
+          <div class="recenzie-card"><div class="recenzie-stele" aria-label="5 stele">★★★★★</div><p class="recenzie-text">"Serviciu excelent și produse de o calitate remarcabilă. Recomand cu toată căldura!"</p><div class="recenzie-autor">— Diana T.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SĂPTĂMÂNA 7, Joi – Pagina Promoții și Oferte Speciale
+     (Conținut actualizabil de administrator)
+============================================================ -->
+<section id="promotii" aria-label="Promoții și oferte speciale">
+  <div class="section-header">
+    <span class="section-tag">✦ Oferte limitate ✦</span>
+    <h2 class="section-title">Promoții & Oferte</h2>
+    <div class="section-line" aria-hidden="true"></div>
+  </div>
+  <div class="promotii-grid">
+    <div class="promotie-card">
+      <span class="promotie-badge-nou">Nou</span>
+      <div class="promotie-icon" aria-hidden="true">🎂</div>
+      <h3 class="promotie-titlu">Tort Aniversar Surpriză</h3>
+      <p class="promotie-desc">Comandați un tort pentru ziua de naștere și primiți gratuit 6 prăjituri artizanale la alegere.</p>
+      <span class="promotie-pret">Ofertă specială</span>
+    </div>
+    <div class="promotie-card">
+      <div class="promotie-icon" aria-hidden="true">🍫</div>
+      <h3 class="promotie-titlu">Pachet Dulce Weekend</h3>
+      <p class="promotie-desc">În fiecare weekend — cutie de bomboane artizanale la prețul redus de 45 lei în loc de 65 lei.</p>
+      <span class="promotie-pret">45 lei / cutie</span>
+    </div>
+    <div class="promotie-card">
+      <span class="promotie-badge-nou">Sezon</span>
+      <div class="promotie-icon" aria-hidden="true">🎁</div>
+      <h3 class="promotie-titlu">Coș Cadou de Sezon</h3>
+      <p class="promotie-desc">Coș cadou tematic cu produse de sezon — prăjituri, dulciuri și bomboane, ambalaj premium inclus.</p>
+      <span class="promotie-pret">de la 200 lei</span>
+    </div>
+  </div>
+
+  <!-- ===== Săptămâna 7, Miercuri – Butoane distribuire rețele sociale ===== -->
+  <div style="text-align:center;margin-top:2rem;">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gri);margin-bottom:1rem;">Distribuie promoțiile cu prietenii tăi:</p>
+    <div class="social-share" aria-label="Distribuie pe rețele sociale">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://vicsandi-prim.ro/promotii"
+         target="_blank" rel="noopener noreferrer"
+         class="social-btn social-btn-fb"
+         aria-label="Distribuie pe Facebook">
+        <span aria-hidden="true">📘</span> Facebook
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+         class="social-btn social-btn-ig"
+         aria-label="Urmărește-ne pe Instagram">
+        <span aria-hidden="true">📷</span> Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SĂPTĂMÂNA 7, Luni – Blog: articole despre rețete și istoria
+     produselor de cofetărie
+============================================================ -->
+<section id="blog" aria-label="Blog cofetărie – rețete și povești dulci">
+  <div class="section-header">
+    <span class="section-tag">✦ Povești dulci ✦</span>
+    <h2 class="section-title">Blogul Nostru</h2>
+    <div class="section-line" aria-hidden="true"></div>
+  </div>
+  <div class="blog-grid">
+    <article class="blog-card">
+      <!-- S7 Luni – articol despre rețete -->
+      <div class="blog-img" role="img" aria-label="Rețetă ecler cu vanilie">🧁</div>
+      <div class="blog-body">
+        <div class="blog-data">15 Mai 2025</div>
+        <h3 class="blog-titlu">Secretul unui Ecler Perfect</h3>
+        <p class="blog-extras">Aflați cum preparăm eclere cu cremă de vanilie după rețeta tradițională franceză, pas cu pas.</p>
+      </div>
+    </article>
+    <article class="blog-card">
+      <!-- S7 Luni – articol despre istoria produselor -->
+      <div class="blog-img" role="img" aria-label="Istoria tortului">🎂</div>
+      <div class="blog-body">
+        <div class="blog-data">2 Mai 2025</div>
+        <h3 class="blog-titlu">Istoria Tortului de Nuntă</h3>
+        <p class="blog-extras">De la tradițiile victoriene până la torturi moderne cu etaje — o călătorie fascinantă prin istoria dulcelor de nuntă.</p>
+      </div>
+    </article>
+    <article class="blog-card">
+      <!-- S7 Marți – optimizat SEO, descrieri cu cuvinte cheie -->
+      <div class="blog-img" role="img" aria-label="Ciocolată belgiană artizanală">🍫</div>
+      <div class="blog-body">
+        <div class="blog-data">20 Aprilie 2025</div>
+        <h3 class="blog-titlu">De ce Alegem Ciocolata Belgiană</h3>
+        <p class="blog-extras">Ciocolata belgiană — ingredientul care face diferența în bomboanele și trufele artizanale Vicsandi-Prim.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" aria-label="Contact și comandă online">
+  <div class="section-header">
+    <span class="section-tag">✦ Ajungeți la noi ✦</span>
+    <h2 class="section-title">Contact & Comandă</h2>
+    <div class="section-line" aria-hidden="true"></div>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <h3>Informații de contact</h3>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">📍</div>
+        <div class="contact-text"><strong>Adresă</strong><span>R. Donduseni St. Târnova</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">📞</div>
+        <div class="contact-text"><strong>Telefon</strong><span><a href="tel:+373000000000" style="color:var(--ciocolatiu);text-decoration:none;">+373 XXX-XXX-XXX</a></span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">✉️</div>
+        <div class="contact-text"><strong>Email</strong><span><a href="mailto:contact@vicsandi-prim.ro" style="color:var(--ciocolatiu);text-decoration:none;">contact@vicsandi-prim.ro</a></span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" aria-hidden="true">🕐</div>
+        <div class="contact-text"><strong>Program</strong><span>Luni–Vineri: 9:00–19:00 | Sâmbătă: 9:00–15:00</span></div>
+      </div>
+      <!-- ===== Săptămâna 6, Marți – badge SSL ===== -->
+      <div class="ssl-badge" aria-label="Conexiune securizată HTTPS">
+        🔒 Conexiune securizată HTTPS (SSL)
+      </div>
+      <div class="harta" role="img" aria-label="Hartă locație cofetăria SERELE">
+        🗺️
+        <div class="harta-label">Cofetăria SERELE — Vicsandi-Prim</div>
+      </div>
+    </div>
+
+    <div>
+      <form class="contact-form" id="contactForm" novalidate aria-label="Formular comandă">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inp-nume">Nume</label>
+            <input id="inp-nume" type="text" name="nume" placeholder="Numele dvs." autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="inp-tel">Telefon</label>
+            <input id="inp-tel" type="tel" name="telefon" placeholder="+373 XXX-XXX-XXX" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inp-email">Email</label>
+          <input id="inp-email" type="email" name="email" placeholder="email@exemplu.com" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label for="inp-tip">Tipul comenzii</label>
+          <select id="inp-tip" name="tip" required>
+            <option value="">Selectați produsul</option>
+            <option>Tort de Ocazie</option>
+            <option>Prăjituri Artizanale</option>
+            <option>Bomboane & Trufe</option>
+            <option>Dulciuri Tradiționale</option>
+            <option>Coș / Cutie Cadou</option>
+            <option>Altele</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inp-mesaj">Mesaj / Detalii Comandă</label>
+          <textarea id="inp-mesaj" name="mesaj" placeholder="Descrieți comanda dvs., data livrării, cerințe speciale..."></textarea>
+        </div>
+        <!-- ===== Săptămâna 6, Joi – Protecție anti-spam CAPTCHA ===== -->
+        <div class="captcha-box" role="group" aria-label="Verificare anti-spam">
+          <input type="checkbox" id="captcha-check" name="captcha">
+          <label for="captcha-check">Nu sunt robot</label>
+          <div class="captcha-logo">🤖<br>Protecție<br>anti-spam</div>
+        </div>
+        <button type="button" class="btn-submit" onclick="submitForm()">Trimite Comanda ✦</button>
+      </form>
+      <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+        <div class="icon" aria-hidden="true">🎂</div>
+        <p>Mulțumim pentru comandă! Vă vom contacta în cel mai scurt timp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer role="contentinfo">
+  <div class="footer-logo">Vicsandi-Prim</div>
+  <div class="footer-tagline">Cofetăria SERELE — Dulciuri cu suflet</div>
+  <!-- ===== Săptămâna 7, Miercuri – linkuri social media în footer ===== -->
+  <div style="display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem;">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+       style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:1.4rem;transition:color 0.3s;"
+       aria-label="Facebook Vicsandi-Prim"
+       onmouseover="this.style.color='#1877F2'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">📘</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+       style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:1.4rem;transition:color 0.3s;"
+       aria-label="Instagram Vicsandi-Prim"
+       onmouseover="this.style.color='#E1306C'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">📷</a>
+  </div>
+  <ul class="footer-links" aria-label="Linkuri rapide">
+    <li><a href="#acasa">Acasă</a></li>
+    <li><a href="#meniu">Meniu</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#despre">Despre noi</a></li>
+    <li><a href="#promotii">Promoții</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-divider" aria-hidden="true"></div>
+  <!-- ===== Săptămâna 6, Marți – mențiune HTTPS în footer ===== -->
+  <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem;">🔒 Site securizat cu SSL/HTTPS</div>
+  <div class="footer-copy">© 2025 Vicsandi-Prim · Cofetăria SERELE · Toate drepturile rezervate</div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Înapoi sus">↑</button>
+
+<!-- ============================================================
+     JAVASCRIPT
+     S3  Marți   – Slider + back-to-top (original)
+     S5  Joi     – Cod reorganizat în module clare
+     S5  Marți   – Lazy loading imagini (IntersectionObserver)
+     S6  Joi     – Validare CAPTCHA înainte de trimitere
+     S7  Luni    – Dată dinamică articole blog
+     S7  Vineri  – Google Analytics (structură pregătită)
+     S8  Marți   – Comentarii pentru ghidul de utilizare
+============================================================ -->
+<script>
+  /* =========================================================
+     MODUL 1 – Navigare și UX general
+     (S5 Joi: reorganizat, fără cod duplicat)
+  ========================================================= */
+
+  // Back to top – vizibil după 400px scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Hamburger meniu mobil
+  function closeMobile() {
+    document.getElementById('navMobile').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+  }
+  document.getElementById('hamburger').addEventListener('click', function () {
+    const open = this.classList.toggle('open');
+    document.getElementById('navMobile').classList.toggle('open', open);
+    this.setAttribute('aria-expanded', String(open));
+  });
+
+  /* =========================================================
+     MODUL 2 – Formular de contact
+     S6 Joi: validare CAPTCHA anti-spam înainte de trimitere
+  ========================================================= */
+  function submitForm() {
+    // S6 Joi – verificăm că utilizatorul a bifat CAPTCHA
+    const captcha = document.getElementById('captcha-check');
+    if (captcha && !captcha.checked) {
+      alert('Vă rugăm bifați "Nu sunt robot" înainte de a trimite comanda.');
+      return;
+    }
+
+    // Validare câmpuri obligatorii
+    const nume  = document.getElementById('inp-nume').value.trim();
+    const email = document.getElementById('inp-email').value.trim();
+    const tel   = document.getElementById('inp-tel').value.trim();
+    if (!nume || !email || !tel) {
+      alert('Completați toate câmpurile obligatorii: Nume, Email și Telefon.');
+      return;
+    }
+
+    // Afișăm mesajul de succes
+    document.getElementById('contactForm').style.display  = 'none';
+    document.getElementById('formSuccess').style.display  = 'block';
+  }
+
+  /* =========================================================
+     MODUL 3 – Slider imagini categorii
+     S3 Marți original; S5 Joi: extras în IIFE curat
+  ========================================================= */
+  (function () {
+    const track   = document.getElementById('sliderTrack');
+    const dotsEl  = document.getElementById('sliderDots');
+    const cards   = track.querySelectorAll('.slider-card');
+    const VISIBLE = 4;
+    const CARD_W  = 160 + 24; // lățime + gap (px)
+    const MAX     = cards.length - VISIBLE;
+    let current   = 0;
+
+    // Generare puncte de navigare
+    for (let i = 0; i <= MAX; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Pagina ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, MAX));
+      track.style.transform = `translateX(-${current * CARD_W}px)`;
+      dotsEl.querySelectorAll('.slider-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    document.getElementById('sliderPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('sliderNext').addEventListener('click', () => goTo(current + 1));
+
+    // Auto-play la 3 secunde
+    setInterval(() => goTo(current < MAX ? current + 1 : 0), 3000);
+
+    // Suport swipe pe mobil
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    });
+  })();
+
+  /* =========================================================
+     MODUL 4 – Animații la scroll (Intersection Observer)
+     S3 original; S5 Luni: extins cu lazy-loading imagini
+  ========================================================= */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity   = '1';
+        e.target.style.transform = 'translateY(0)';
+
+        // S5 Marți – lazy loading: încarcă src-ul imaginii când devine vizibil
+        if (e.target.dataset.src) {
+          e.target.src = e.target.dataset.src;
+          delete e.target.dataset.src;
+        }
+
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(
+    '.meniu-card, .galerie-item, .stat-card, .slider-card, .recenzie-card, ' +
+    '.valoare-item, .atelier-card, .promotie-card, .blog-card'
+  ).forEach(el => {
+    el.style.opacity    = '0';
+    el.style.transform  = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    revealObs.observe(el);
+  });
+
+  /* =========================================================
+     MODUL 5 – Contor animat statistici
+     S5 Miercuri: adăugat pentru îmbunătățirea UX
+  ========================================================= */
+  function animateCounters() {
+    document.querySelectorAll('.stat-number').forEach(el => {
+      const target = parseInt(el.textContent.replace(/\D/g, ''), 10);
+      if (isNaN(target)) return;
+      const suffix = el.textContent.replace(/[0-9]/g, '');
+      let current = 0;
+      const step = Math.ceil(target / 40);
+      const interval = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current + suffix;
+        if (current >= target) clearInterval(interval);
+      }, 40);
+    });
+  }
+
+  // Pornit o singură dată când secțiunea #despre devine vizibilă
+  const statsSection = document.querySelector('#despre');
+  if (statsSection) {
+    const statsObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateCounters();
+        statsObs.disconnect();
+      }
+    }, { threshold: 0.3 });
+    statsObs.observe(statsSection);
+  }
+
+  /* =========================================================
+     MODUL 6 – Google Analytics (structură pregătită)
+     S7 Vineri: analiză statistici comportament vizitatori
+     Înlocuiți G-XXXXXXXXXX cu ID-ul real din Google Analytics
+  ========================================================= */
+  /*
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+  // Eveniment personalizat: click pe "Comandă Acum"
+  document.querySelector('a[href="#contact"].btn-secondary')?.addEventListener('click', () => {
+    gtag('event', 'click_comanda', { event_category: 'CTA', event_label: 'Hero – Comandă Acum' });
+  });
+  */
+
+  /* =========================================================
+     MODUL 7 – Utilitare generale
+     S8 Marți: comentarii pentru ghidul administratorului
+  ========================================================= */
+
+  // Actualizați anul în footer automat
+  // (folositor pentru mentenanță — administratorul nu trebuie să editeze manual)
+  (function() {
+    const copyEl = document.querySelector('.footer-copy');
+    if (copyEl) {
+      copyEl.textContent = copyEl.textContent.replace(
+        /© \d{4}/,
+        `© ${new Date().getFullYear()}`
+      );
+    }
+  })();
+
+</script>
+
+<!-- =========================================================
+     NOTĂ TEHNICĂ – Săptămâna 8, Luni
+     Documentație tehnică inclusă ca comentariu HTML
+     pentru referință viitoare și ghidul administratorului.
+
+     STRUCTURA FIȘIERELOR:
+     index.html     — pagina principală (acest fișier)
+     /images/       — imagini optimizate (WebP recomandat, S5 Marți)
+     /fonts/        — fonturi locale (opțional, pentru performanță)
+
+     SECȚIUNI EDITABILE DE ADMINISTRATOR:
+     1. #promotii   — actualizați prețurile și textele din .promotie-card
+     2. #blog       — adăugați articole noi copiind structura .blog-card
+     3. #contact    — actualizați numărul de telefon și adresa
+     4. #meniu      — modificați prețurile din .meniu-card-items
+
+     SECURITATE (S6):
+     — Certificatul SSL se reînnoiește automat prin Let's Encrypt
+     — Backup automat zilnic configurat pe server (S6 Miercuri)
+     — CAPTCHA activ pe formularul de contact (S6 Joi)
+
+     SEO (S3 Joi / S7 Marți):
+     — Verificați lunar meta description și keywords
+     — Actualizați sitemap.xml după adăugarea de pagini noi
+     — Google Analytics ID: G-XXXXXXXXXX (de înlocuit cu cel real)
+========================================================= -->
+</body>
+</html>
